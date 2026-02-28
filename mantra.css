@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    background: black;
+    color: #FFF9C4;
+    font-family: "Noto Serif JP", serif;
+    overflow: hidden; /* ← 画面全体のスクロールを禁止 */
+}
+
+/* 光粒アニメーション */
+#particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* 戻るボタン */
+#back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+/* タイトル */
+#title {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #FFF9C4;
+    z-index: 15;
+}
+
+/* トップメッセージ */
+.top-message {
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    font-size: 20px;
+    color: #FFF9C4;
+    text-align: center;
+    font-family: "Noto Serif JP", serif;
+    z-index: 20;
+    pointer-events: none;
+}
+
+/* 本文スクロール領域（ここが最重要） */
+#scrollArea {
+    position: fixed;
+    top: 120px;     /* タイトル＋メッセージの下から開始 */
+    left: 0;
+    width: 100%;
+    bottom: 0;      /* 画面下まで */
+    overflow-y: auto;
+    z-index: 10;
+    touch-action: pan-y; /* ← スクロールを確実に scrollArea に渡す */
+}
+
+/* 本文 */
+#text {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+
+/* 各行 */
+.line {
+    margin: 12px 0;
+    text-align: left;
+}
+
+/* 文字サイズ */
+.mantra-small .line { font-size: 22px; }
+.mantra-medium .line { font-size: 26px; }
+.mantra-large .line { font-size: 32px; }
+
+/* ルビ */
+ruby rt {
+    font-size: 0.6em;
+    color: #FFD;
+}
+
+/* タップ領域（行送り用） */
+#tapArea {
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 999;
+    background: transparent;
+
+    pointer-events: auto;   /* ← タップを拾う */
+    touch-action: none;     /* ← ドラッグは拾わない（スクロールは scrollArea に渡す） */
+}
